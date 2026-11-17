@@ -1,0 +1,4 @@
+# Ensure GitHub Linguist recognizes this repository as 100% Python
+tests/fixtures/** linguist-detectable=false
+docs/** linguist-documentation
+*.md linguist-documentation

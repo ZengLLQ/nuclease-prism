@@ -1,0 +1,156 @@
+"""
+NucleasePrism: Biophysical CRISPR guide-RNA scoring, genome-wide off-target FM-index
+alignment, DNA double-strand break repair kinetics, and pooled functional screen engine.
+"""
+
+from .calibration import (
+    CalibrationResult,
+    CleavageObservation,
+    bootstrap_confidence_interval,
+    calibrate_rloop_kinetics,
+    generate_synthetic_cleavage_dataset,
+    sobol_rloop_sensitivity,
+)
+from .haplotype import (
+    AlleleSpecificGuide,
+    GenomicVariant,
+    apply_variants_to_sequence,
+    score_allele_specific_guides,
+    select_multiplex_guide_cover,
+)
+from .indexing import GenomeFMIndex, align_single_bulge, bit_parallel_hamming, encode_2bit
+from .nucleases import (
+    NUCLEASE_REGISTRY,
+    evaluate_pam_weight,
+    get_nuclease_profile,
+    list_supported_nucleases,
+    matches_iupac,
+)
+from .pipeline import (
+    GuideDesignPipeline,
+    build_synthetic_benchmark_genome,
+    compute_pareto_ranks,
+    report_to_csv,
+    report_to_json,
+)
+from .repair import RepairKineticRates, predict_repair_spectrum, simulate_repair_time_course
+from .scoring import (
+    analyze_precision_editing_window,
+    compute_cfd_score,
+    compute_mit_score,
+    evaluate_off_targets,
+    score_on_target_efficacy,
+)
+from .screens import (
+    analyze_pooled_screen,
+    benjamini_hochberg,
+    compute_auroc,
+    compute_bliss_synergy,
+    compute_gini_index,
+    compute_rra_pvalue,
+)
+from .sequence import (
+    compute_rna_hairpin_mfe,
+    find_microhomologies,
+    gc_content,
+    normalize_dna,
+    parse_fasta_text,
+    reverse_complement,
+    scan_protospacers,
+)
+from .thermodynamics import (
+    KineticParameters,
+    analyze_rloop_thermodynamics,
+    compute_hybrid_melting_temp,
+    solve_rloop_master_equation,
+)
+from .types import (
+    BatchDesignReport,
+    BulgeType,
+    EditingWindowProfile,
+    GeneScreenResult,
+    GenomicInterval,
+    GuideEvaluation,
+    NucleaseClass,
+    NucleaseProfile,
+    OffTargetHit,
+    ProtospacerCandidate,
+    RepairAllele,
+    RepairPathway,
+    RepairSpectrum,
+    ScreenAnalysisReport,
+    Strand,
+    ThermodynamicProfile,
+)
+
+__version__ = "0.1.0"
+
+__all__ = [
+    "__version__",
+    "AlleleSpecificGuide",
+    "BatchDesignReport",
+    "BulgeType",
+    "CalibrationResult",
+    "CleavageObservation",
+    "EditingWindowProfile",
+    "GeneScreenResult",
+    "GenomeFMIndex",
+    "GenomicInterval",
+    "GenomicVariant",
+    "GuideDesignPipeline",
+    "GuideEvaluation",
+    "KineticParameters",
+    "NUCLEASE_REGISTRY",
+    "NucleaseClass",
+    "NucleaseProfile",
+    "OffTargetHit",
+    "ProtospacerCandidate",
+    "RepairAllele",
+    "RepairKineticRates",
+    "RepairPathway",
+    "RepairSpectrum",
+    "ScreenAnalysisReport",
+    "Strand",
+    "ThermodynamicProfile",
+    "align_single_bulge",
+    "analyze_pooled_screen",
+    "analyze_precision_editing_window",
+    "analyze_rloop_thermodynamics",
+    "apply_variants_to_sequence",
+    "benjamini_hochberg",
+    "bit_parallel_hamming",
+    "bootstrap_confidence_interval",
+    "build_synthetic_benchmark_genome",
+    "calibrate_rloop_kinetics",
+    "compute_auroc",
+    "compute_bliss_synergy",
+    "compute_cfd_score",
+    "compute_gini_index",
+    "compute_hybrid_melting_temp",
+    "compute_mit_score",
+    "compute_pareto_ranks",
+    "compute_rna_hairpin_mfe",
+    "compute_rra_pvalue",
+    "encode_2bit",
+    "evaluate_off_targets",
+    "evaluate_pam_weight",
+    "find_microhomologies",
+    "gc_content",
+    "generate_synthetic_cleavage_dataset",
+    "get_nuclease_profile",
+    "list_supported_nucleases",
+    "matches_iupac",
+    "normalize_dna",
+    "parse_fasta_text",
+    "predict_repair_spectrum",
+    "report_to_csv",
+    "report_to_json",
+    "reverse_complement",
+    "scan_protospacers",
+    "score_allele_specific_guides",
+    "score_on_target_efficacy",
+    "select_multiplex_guide_cover",
+    "simulate_repair_time_course",
+    "sobol_rloop_sensitivity",
+    "solve_rloop_master_equation",
+]
