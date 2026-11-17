@@ -152,4 +152,3 @@ def test_all_nuclease_spacer_lengths_and_zipping_bijection(nuclease_name: str, e
 )
 def test_spcas9_pam_iupac_matrix(pam: str, expected_positive: bool) -> None:
     assert matches_iupac(pam, "NGG") is expected_positive
-
