@@ -40,7 +40,7 @@ from .scoring import compute_cfd_score, compute_mit_score
 from .screens import analyze_pooled_screen
 from .sequence import normalize_dna, parse_fasta_text
 from .thermodynamics import KineticParameters, analyze_rloop_thermodynamics
-from .types import BulgeType, OffTargetHit
+from .types import BulgeType, GenomicInterval, OffTargetHit
 from .visualizer import (
     assert_strict_ascii,
     render_design_report,
@@ -73,7 +73,7 @@ def _cmd_design(args: argparse.Namespace) -> int:
     if args.fasta:
         contigs, default_locus = _load_fasta_or_synthetic(args.fasta, args.seed)
         locus = args.locus or default_locus
-        intervals = []
+        intervals: List[GenomicInterval] = []
     else:
         contigs, intervals = build_synthetic_benchmark_genome(
             target_locus_name=args.locus or "TP53_EXON5",

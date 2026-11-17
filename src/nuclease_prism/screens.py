@@ -263,8 +263,8 @@ def analyze_pooled_screen(
     for gene in genes_sorted:
         idxs = gene_map[gene]
         g_lfc = lfc[idxs]
-        p_d = compute_rra_pvalue(ranks_dep[idxs])
-        p_e = compute_rra_pvalue(ranks_enr[idxs])
+        p_d = compute_rra_pvalue(ranks_dep[idxs].tolist())
+        p_e = compute_rra_pvalue(ranks_enr[idxs].tolist())
         raw_dep_p.append(p_d)
         raw_enr_p.append(p_e)
         gene_stats.append((gene, len(idxs), float(np.mean(g_lfc)), float(np.median(g_lfc))))
